@@ -1,8 +1,10 @@
+import Image from "next/image";
+
 const TYPES = [
   {
     title: "Матовые",
     text: "Классика без бликов, подходит под любой интерьер.",
-    gradient: "from-[#0f4f4d] to-[#0a2b2a]",
+    photo: "/ceilings/matte.webp",
   },
   {
     title: "Глянцевые",
@@ -12,22 +14,22 @@ const TYPES = [
   {
     title: "Сатиновые",
     text: "Мягкий перламутровый отблеск без резких бликов.",
-    gradient: "from-[#1c6b64] to-[#0a2b2a]",
+    photo: "/ceilings/satin.png",
   },
   {
     title: "Тканевые",
     text: "Дышащий материал, широкие полотна почти без швов.",
-    gradient: "from-[#4ee0a6] to-[#0a4443]",
+    photo: "/ceilings/fabric.webp",
   },
   {
     title: "Парящие",
     text: "Подсветка по контуру создаёт эффект левитации потолка.",
-    gradient: "from-[#089259] to-[#013334]",
+    photo: "/ceilings/floating.webp",
   },
   {
     title: "Многоуровневые",
     text: "Сложная геометрия и зонирование светом для любых задач.",
-    gradient: "from-[#0f4f4d] to-[#013334]",
+    photo: "/ceilings/multilevel.webp",
   },
 ];
 
@@ -48,9 +50,21 @@ export default function CeilingTypes() {
               key={type.title}
               className="overflow-hidden rounded-2xl border border-white/10"
             >
-              <div
-                className={`h-32 w-full bg-gradient-to-br ${type.gradient}`}
-              />
+              {type.photo ? (
+                <div className="relative h-40 w-full">
+                  <Image
+                    src={type.photo}
+                    alt={`${type.title} натяжной потолок`}
+                    fill
+                    sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <div
+                  className={`h-40 w-full bg-gradient-to-br ${type.gradient}`}
+                />
+              )}
               <div className="bg-brand-bg-soft/60 p-5">
                 <h3 className="text-base font-semibold">{type.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-brand-white/65">
