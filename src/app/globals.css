@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+:root {
+  --background: #013334;
+  --foreground: #f2f7f5;
+  --brand-bg: #013334;
+  --brand-bg-soft: #0a4443;
+  --brand-surface: #0f4f4d;
+  --brand-green: #0ac278;
+  --brand-green-dark: #089259;
+  --brand-green-light: #4ee0a6;
+  --brand-white: #f2f7f5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-bg: var(--brand-bg);
+  --color-brand-bg-soft: var(--brand-bg-soft);
+  --color-brand-surface: var(--brand-surface);
+  --color-brand-green: var(--brand-green);
+  --color-brand-green-dark: var(--brand-green-dark);
+  --color-brand-green-light: var(--brand-green-light);
+  --color-brand-white: var(--brand-white);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.brand-heading {
+  font-family: var(--font-mono), monospace;
+  letter-spacing: -0.01em;
+}
+
+.section-shell {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .section-shell {
+    padding-inline: 2rem;
+  }
+}
